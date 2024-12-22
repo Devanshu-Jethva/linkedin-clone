@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/linkedin_users_db
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+server:
+  port: 9020
+  servlet:
+    context-path: /user-service
+
+jwt:
+  secretKey: asdfladf98a7df89aysf8d9yasiudfha9s87dfa89syudhfa98sdfyaisuhdfa98sfy
+
+  
