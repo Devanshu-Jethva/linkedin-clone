@@ -1,14 +1,11 @@
 package com.linkedin.service;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Date;
 
 import javax.crypto.SecretKey;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import com.linkedin.entity.User;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -24,14 +21,9 @@ public class JwtService {
 		return Keys.hmacShaKeyFor(jwtSecretKey.getBytes(StandardCharsets.UTF_8));
 	}
 
-	public String generateAccessToken(final User user) {
-		return Jwts.builder().subject(user.getId().toString()).claim("email", user.getEmail()).issuedAt(new Date())
-				.expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 100)).signWith(getSecretKey()).compact();
-	}
-
-	public Long getUserIdFromToken(final String token) {
+	public String getUserIdFromToken(final String token) {
 		Claims claims = Jwts.parser().verifyWith(getSecretKey()).build().parseSignedClaims(token).getPayload();
-		return Long.valueOf(claims.getSubject());
+		return claims.getSubject();
 	}
 
 }
