@@ -15,7 +15,6 @@ import com.linkedin.dto.PostCreateRequestDto;
 import com.linkedin.dto.PostDto;
 import com.linkedin.service.PostsService;
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -26,9 +25,8 @@ public class PostsController {
 	private final PostsService postsService;
 
 	@PostMapping
-	public ResponseEntity<PostDto> createPost(@RequestBody final PostCreateRequestDto postDto,
-			final HttpServletRequest httpServletRequest) {
-		PostDto createdPost = postsService.createPost(postDto, 1L);
+	public ResponseEntity<PostDto> createPost(@RequestBody final PostCreateRequestDto postDto) {
+		PostDto createdPost = postsService.createPost(postDto);
 		return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
 	}
 

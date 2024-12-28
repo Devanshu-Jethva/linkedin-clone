@@ -94,6 +94,7 @@
 		<module>api-gateway</module>
 		<module>discovery-server</module>
 		<module>connection-service</module>
+		<module>notification-service</module>
 	</modules>
 
 </project>
