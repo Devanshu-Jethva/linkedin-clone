@@ -29,8 +29,6 @@
 		<url />
 	</scm>
 	<properties>
-		<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
-		<spring-boot.build-image.builder>paketobuildpacks/builder:tiny</spring-boot.build-image.builder>
 		<java.version>21</java.version>
 		<dockerPass>${dockerPassword}</dockerPass>
 	</properties>
@@ -67,11 +65,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>3.4.1</version>
 				<configuration>
 					<image>
 						<name>docker.io/devanshu1309/linkedin-${project.artifactId}</name>
-						<builder>paketobuildpacks/builder:tiny</builder>
+						<builder>paketobuildpacks/builder-jammy-java-tiny:latest</builder>
 						<publish>true</publish><!--true means it will try to push 
 						so that's why we requires publishRegistry tag to define username and password for our dockerhub registry-->
 					</image>
