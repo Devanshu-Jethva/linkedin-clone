@@ -82,7 +82,7 @@ services:
       - linkedin-network
 
   discovery-server:
-    image: linkedin-eureka-discovery-server
+    image: devanshu1309/linkedin-discovery-server
     container_name: discovery-server-container
     networks:
       - linkedin-network
@@ -90,7 +90,7 @@ services:
       - "8761:8761"
 
   posts-service:
-    image: linkedin-post-service
+    image: devanshu1309/linkedin-post-service
     container_name: posts-service-container
     networks:
       - linkedin-network
@@ -100,7 +100,7 @@ services:
       - kafka-service
 
   user-service:
-    image: linkedin-user-service
+    image: devanshu1309/linkedin-user-service
     container_name: user-service-container
     networks:
       - linkedin-network
@@ -110,7 +110,7 @@ services:
       - kafka-service
 
   notification-service:
-    image: linkedin-notification-service
+    image: devanshu1309/linkedin-notification-service
     container_name: notification-service-container
     networks:
       - linkedin-network
@@ -120,7 +120,7 @@ services:
       - kafka-service
 
   connections-service:
-    image: linkedin-connection-service
+    image: devanshu1309/linkedin-connection-service
     container_name: connections-service-container
     networks:
       - linkedin-network
@@ -130,7 +130,7 @@ services:
       - kafka-service
 
   api-gateway:
-    image: linkedin-api-gateway
+    image: devanshu1309/linkedin-api-gateway
     container_name: api-gateway-container
     ports:
       - "8080:8080"
